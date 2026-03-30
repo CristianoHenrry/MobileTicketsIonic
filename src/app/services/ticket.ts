@@ -5,6 +5,7 @@ export interface Ticket {
   tipo: string;
   atendido: boolean;
   guiche?: number;
+  horaEmissao: Date;
   horaAtendimento?: Date;
 }
 
@@ -15,7 +16,7 @@ export class TicketService {
   guicheAtual = 1;
   totalGuiches = 3;
   ultimaSenhaTipo: string = '';
-
+  todosOsTickets: Ticket[] = [];
   fila: Ticket[] = [];
   historico: Ticket[] = [];
   contador = 1;
@@ -26,15 +27,49 @@ export class TicketService {
       .toString().padStart(2, '0')}${data.getDate()
         .toString().padStart(2, '0')}-${tipo}${this.contador}`;
 
-    this.contador++;
-
     const ticket: Ticket = {
       numero,
       tipo,
-      atendido: false
+      atendido: false,
+      horaEmissao: new Date()
     };
 
     this.fila.push(ticket);
+    this.todosOsTickets.push(ticket);
+    this.contador++;
+  }
+
+  getRelatorioGeral() {
+    return {
+      totalEmitidos: this.todosOsTickets.length,
+      totalAtendidos: this.todosOsTickets.filter(t => t.atendido).length,
+      emitidosSP: this.todosOsTickets.filter(t => t.tipo === 'SP').length,
+      emitidosSE: this.todosOsTickets.filter(t => t.tipo === 'SE').length,
+      emitidosSG: this.todosOsTickets.filter(t => t.tipo === 'SG').length,
+      atendidosSP: this.todosOsTickets.filter(t => t.atendido && t.tipo === 'SP').length,
+      atendidosSE: this.todosOsTickets.filter(t => t.atendido && t.tipo === 'SE').length,
+      atendidosSG: this.todosOsTickets.filter(t => t.atendido && t.tipo === 'SG').length,
+      tempoMedio: this.getTempoMedioAtendimento(),
+      detalhes: this.todosOsTickets
+    };
+  }
+
+  getTempoMedioAtendimento(): string {
+    const atendidos = this.todosOsTickets.filter(t => t.atendido && t.horaAtendimento);
+
+    if (atendidos.length === 0) return '00:00';
+
+    const somaTempos = atendidos.reduce((acc, t) => {
+      const diff = t.horaAtendimento!.getTime() - t.horaEmissao.getTime();
+      return acc + diff;
+    }, 0);
+
+    const mediaMs = somaTempos / atendidos.length;
+    const totalSegundos = Math.floor(mediaMs / 1000);
+    const minutos = Math.floor(totalSegundos / 60);
+    const segundos = totalSegundos % 60;
+
+    return `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
   }
 
   chamarProximo() {

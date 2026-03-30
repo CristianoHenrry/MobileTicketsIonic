@@ -19,3 +19,19 @@
     </ion-item>
   </ion-list>
 </ion-content>
+<ion-list>
+  <ion-item-divider>
+    <ion-label>Relatório Detalhado</ion-label>
+  </ion-item-divider>
+
+  <ion-item *ngFor="let t of ticketService.todosOsTickets">
+    <ion-label>
+      <h2>{{ t.numero }} ({{ t.tipo }})</h2>
+      <p>Emissão: {{ t.horaEmissao | date:'HH:mm:ss' }}</p>
+      <p *ngIf="t.atendido">
+        Atendimento: {{ t.horaAtendimento | date:'HH:mm:ss' }} - Guichê: {{ t.guiche }}
+      </p>
+      <p *ngIf="!t.atendido" style="color: red;">Aguardando atendimento</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
