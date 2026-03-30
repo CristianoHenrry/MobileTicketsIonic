@@ -55,8 +55,6 @@ Criar um aplicativo utilizando Ionic + Angular capaz de:
 * Tela de fila de atendimento
 * Tela de histórico
 
-*(Adicionar prints aqui)*
-
 ---
 
 ## 👨‍💻 Autor
