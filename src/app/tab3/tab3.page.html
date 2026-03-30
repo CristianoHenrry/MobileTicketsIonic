@@ -1,17 +1,25 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Histórico</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card *ngFor="let h of ticketService.historico">
+
+    <ion-card-header>
+      <ion-card-title>
+        {{ h.numero }}
+      </ion-card-title>
+      <ion-card-subtitle>
+        Tipo: {{ h.tipo }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><strong>Guichê:</strong> {{ h.guiche }}</p>
+      <p><strong>Atendido em:</strong> {{ h.horaAtendimento | date:'dd/MM/yyyy HH:mm:ss' }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
