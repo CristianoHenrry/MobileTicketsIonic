@@ -70,41 +70,6 @@ src/
 ├── theme/
 └── global.scss
 ```
-
----
-
-## ⚙️ Como Executar o Projeto
-
-### Clonar o repositório
-
-```bash
-git clone https://github.com/CristianoHenrry/MobileTicketsIonic.git
-```
-
-### Acessar a pasta do projeto
-
-```bash
-cd MobileTicketsIonic
-```
-
-### Instalar as dependências
-
-```bash
-npm install
-```
-
-### Executar o projeto
-
-```bash
-ionic serve
-```
-
-A aplicação será aberta automaticamente no navegador através do endereço:
-
-```text
-http://localhost:8100
-```
-
 ---
 
 ## 🎯 Objetivo Acadêmico
