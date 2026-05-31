@@ -1,19 +1,133 @@
-# MobileTicketsIonic
-Sistemas de senhas
-# MobileTicketsIonic - Sistema de Laboratório
+# 🎟️ MobileTicketsIonic
 
-Projeto desenvolvido para a disciplina de Desenvolvimento Mobile (UNINASSAU).
+Aplicativo desenvolvido com **Ionic Framework** e **Angular** para simular um sistema de gerenciamento de senhas de atendimento.
 
-## 🚀 Agentes do Sistema
+O sistema permite emitir senhas, realizar chamadas para atendimento e visualizar o histórico das últimas senhas chamadas através de uma interface intuitiva e responsiva.
 
-* **Tab 1 (AC):** Totem de geração de senhas (YYMMDD-PPSQ).
-* **Tab 2 (AA):** Painel do Atendente para chamar a próxima senha.
-* **Tab 3 (AS):** Painel do Sistema com o histórico das últimas 5 chamadas.
+---
 
-## 📸 Demonstração
-![Tab 1 - Totem](./TAB1.png)
-![Tab 2 - Atendente](./TAB2.png)
-![Tab 3 - Painel](./TAB3.png)
+## 🚀 Tecnologias Utilizadas
 
-## ⚖️ Licença
-Este projeto está sob a licença MIT.
+* Ionic Framework
+* Angular
+* TypeScript
+* HTML5
+* SCSS
+* Node.js
+* npm
+
+---
+
+## 📋 Funcionalidades
+
+### 🎟️ Totem de Atendimento
+
+* Emissão de senhas prioritárias (SP)
+* Emissão de senhas para retirada de exames (SE)
+* Emissão de senhas gerais (SG)
+
+### 🖥️ Guichê de Atendimento
+
+* Chamada da próxima senha da fila
+* Exibição da senha em atendimento
+
+### 📢 Painel de Chamadas
+
+* Exibição das últimas senhas chamadas
+* Atualização em tempo real das chamadas realizadas
+
+---
+
+## 📸 Capturas de Tela
+
+### Totem de Atendimento
+
+![Totem de Atendimento](imagem/tab1.png)
+
+### Guichê de Atendimento
+
+![Guichê de Atendimento](imagem/tab2.png)
+
+### Painel de Chamadas
+
+![Painel de Chamadas](imagem/tab3.png)
+
+---
+
+## 📂 Estrutura do Projeto
+
+```text
+src/
+├── app/
+│   ├── tab1/
+│   ├── tab2/
+│   ├── tab3/
+│   ├── services/
+│   ├── tabs/
+│   ├── app.module.ts
+│   └── app-routing.module.ts
+├── assets/
+├── theme/
+└── global.scss
+```
+
+---
+
+## ⚙️ Como Executar o Projeto
+
+### Clonar o repositório
+
+```bash
+git clone https://github.com/CristianoHenrry/MobileTicketsIonic.git
+```
+
+### Acessar a pasta do projeto
+
+```bash
+cd MobileTicketsIonic
+```
+
+### Instalar as dependências
+
+```bash
+npm install
+```
+
+### Executar o projeto
+
+```bash
+ionic serve
+```
+
+A aplicação será aberta automaticamente no navegador através do endereço:
+
+```text
+http://localhost:8100
+```
+
+---
+
+## 🎯 Objetivo Acadêmico
+
+Este projeto foi desenvolvido com o objetivo de aplicar conceitos de desenvolvimento mobile utilizando o Ionic Framework e Angular, abordando:
+
+* Componentização
+* Navegação por abas (Tabs)
+* Serviços Angular
+* Compartilhamento de dados
+* Interface responsiva
+* Desenvolvimento híbrido
+
+---
+
+## 👨‍💻 Autor
+
+**Cristiano Henrry**
+
+GitHub: https://github.com/CristianoHenrry
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob os termos da licença MIT.
