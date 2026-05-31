@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>📢 Painel de Chamadas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-list-header>
+      <ion-label>ÚLTIMAS SENHAS CHAMADAS</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let senha of queue.ultimasChamadas">
+
+      <ion-icon
+        name="megaphone-outline"
+        slot="start"
+        color="primary">
+      </ion-icon>
+
+      <ion-label>
+        <h2 class="senha-painel">{{ senha }}</h2>
+        <p>Guichê 01</p>
+      </ion-label>
+
+    </ion-item>
+
+  </ion-list>
+
+  <div *ngIf="queue.ultimasChamadas.length === 0"
+       class="ion-text-center ion-padding">
+
+    <p>Nenhuma senha chamada ainda.</p>
+
+  </div>
+
+</ion-content>

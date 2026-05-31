@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>🎟️ Totem de Atendimento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="hero">
+    <h1>Bem-vindo</h1>
+    <p>Selecione o tipo de atendimento desejado</p>
+  </div>
+
+  <div class="buttons-container">
+
+    <ion-button expand="block" color="danger" (click)="gerarSenha('SP')">
+      🔴 Senha Prioritária
+    </ion-button>
+
+    <ion-button expand="block" color="success" (click)="gerarSenha('SE')">
+      🟢 Retirada de Exames
+    </ion-button>
+
+    <ion-button expand="block" color="primary" (click)="gerarSenha('SG')">
+      🔵 Senha Geral
+    </ion-button>
+
+  </div>
+
+  <ion-card *ngIf="ultimaSenha" class="senha-card">
+    <ion-card-content>
+      <p>SUA SENHA</p>
+      <h1>{{ ultimaSenha }}</h1>
+      <small>Atendimento: 07:00 às 17:00</small>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
